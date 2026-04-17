@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Use — OurBar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #0A0A0A;
+      --dark: #111111;
+      --card: #1A1A1A;
+      --border: #2A2A2A;
+      --cyan: #00E5E5;
+      --white: #F5F5F0;
+      --muted: #888880;
+      --text: #D8D8D0;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.75;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 32px 0;
+      position: sticky;
+      top: 0;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      background: var(--card);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 16px rgba(0,229,229,0.25);
+      flex-shrink: 0;
+    }
+
+    .logo-mark svg {
+      width: 20px;
+      height: 20px;
+      color: var(--cyan);
+    }
+
+    .logo-text {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 18px;
+      color: var(--white);
+      letter-spacing: -0.3px;
+    }
+
+    .doc-badge {
+      margin-left: auto;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 72px 32px 120px;
+    }
+
+    .doc-hero {
+      margin-bottom: 64px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .doc-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 20px;
+    }
+
+    .doc-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(36px, 6vw, 52px);
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 24px;
+    }
+
+    .doc-meta {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .doc-meta-item {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .doc-meta-item strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .doc-intro {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--cyan);
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin-bottom: 56px;
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    section {
+      margin-bottom: 56px;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 26px;
+      color: var(--white);
+      letter-spacing: -0.5px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    h2::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 24px;
+      background: var(--cyan);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    h3 {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 8px;
+      margin-top: 24px;
+    }
+
+    p {
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    ul, ol {
+      margin-bottom: 16px;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    ul li, ol li {
+      padding: 6px 0 6px 24px;
+      position: relative;
+      color: var(--text);
+    }
+
+    ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--cyan);
+      font-weight: 500;
+    }
+
+    ol {
+      counter-reset: list-counter;
+    }
+
+    ol li {
+      counter-increment: list-counter;
+    }
+
+    ol li::before {
+      content: counter(list-counter) '.';
+      position: absolute;
+      left: 0;
+      color: var(--cyan);
+      font-weight: 500;
+      font-size: 13px;
+    }
+
+    a {
+      color: var(--cyan);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0,229,229,0.3);
+      transition: border-color 0.2s;
+    }
+
+    a:hover {
+      border-color: var(--cyan);
+    }
+
+    .callout {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      font-size: 14px;
+    }
+
+    .callout.warning {
+      border-left: 3px solid #FF6B6B;
+    }
+
+    .callout.warning .callout-label {
+      color: #FF6B6B;
+    }
+
+    .callout.notice {
+      border-left: 3px solid #FFB347;
+    }
+
+    .callout.notice .callout-label {
+      color: #FFB347;
+    }
+
+    .callout-label {
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      color: var(--cyan);
+    }
+
+    .disclaimer-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .contact-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      margin-top: 48px;
+    }
+
+    .contact-box h2 {
+      margin-bottom: 16px;
+    }
+
+    .contact-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .contact-row {
+      display: flex;
+      gap: 16px;
+      font-size: 14px;
+    }
+
+    .contact-row .label {
+      color: var(--muted);
+      min-width: 80px;
+    }
+
+    .contact-row .value {
+      color: var(--text);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    footer a {
+      color: var(--muted);
+      border-bottom-color: rgba(136,136,128,0.3);
+    }
+
+    footer a:hover {
+      color: var(--cyan);
+      border-color: var(--cyan);
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 600px) {
+      main { padding: 48px 20px 80px; }
+      .header-inner { padding: 0 20px; }
+      .doc-meta { flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo-mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 22H16M12 11V22M20 7L4 7M20 7C20 7 19 11 12 11C5 11 4 7 4 7M20 7L21 2H3L4 7"/>
+      </svg>
+    </div>
+    <span class="logo-text">ourbar</span>
+    <span class="doc-badge">Legal</span>
+  </div>
+</header>
+
+<main>
+
+  <div class="doc-hero">
+    <p class="doc-eyebrow">Eighth Ventures LLC</p>
+    <h1 class="doc-title">Terms of Use</h1>
+    <div class="doc-meta">
+      <div class="doc-meta-item"><strong>Effective:</strong> April 1, 2026</div>
+      <div class="doc-meta-item"><strong>Last updated:</strong> April 1, 2026</div>
+      <div class="doc-meta-item"><strong>Version:</strong> 1.0</div>
+    </div>
+  </div>
+
+  <div class="doc-intro">
+    These Terms of Use ("Terms") govern your access to and use of OurBar, a mobile application operated by Eighth Ventures LLC ("we," "us," or "our"). By downloading, installing, or using OurBar, you agree to be bound by these Terms. If you do not agree, do not use the App.
+  </div>
+
+  <!-- 1. ELIGIBILITY -->
+  <section>
+    <h2>Eligibility and Age Requirement</h2>
+    <div class="callout warning">
+      <div class="callout-label">Age Requirement</div>
+      OurBar is intended for users of legal drinking age in their jurisdiction. By using this App, you confirm that you are of legal drinking age where you reside. In the United States, this means you are 21 years of age or older.
+    </div>
+    <p>You must be at least 18 years old to create an account. By creating an account, you represent and warrant that:</p>
+    <ul>
+      <li>You are at least 18 years of age</li>
+      <li>You are of legal drinking age in your jurisdiction</li>
+      <li>You have the legal capacity to enter into a binding agreement</li>
+      <li>You will use the App in compliance with all applicable laws and regulations</li>
+    </ul>
+  </section>
+
+  <!-- 2. YOUR ACCOUNT -->
+  <section>
+    <h2>Your Account</h2>
+    <p>To use most features of OurBar, you must create an account. You are responsible for:</p>
+    <ul>
+      <li>Providing accurate and complete registration information</li>
+      <li>Maintaining the confidentiality of your account credentials</li>
+      <li>All activity that occurs under your account</li>
+      <li>Notifying us immediately of any unauthorized use of your account</li>
+    </ul>
+    <p>You may not create an account on behalf of another person without their express permission, or create multiple accounts for the same person.</p>
+    <p>We reserve the right to suspend or terminate accounts that violate these Terms or that have been inactive for an extended period.</p>
+  </section>
+
+  <!-- 3. ACCEPTABLE USE -->
+  <section>
+    <h2>Acceptable Use</h2>
+    <p>OurBar is a social platform for cocktail and spirits enthusiasts. You agree to use the App only for lawful purposes and in a manner consistent with its intended social and recreational nature.</p>
+
+    <h3>You May</h3>
+    <ul>
+      <li>Add and manage your personal bar inventory</li>
+      <li>Discover cocktails and explore our recipe database</li>
+      <li>Create and join groups with friends</li>
+      <li>Participate in Flights and rate cocktails</li>
+      <li>Log spirit discoveries and share tasting notes</li>
+      <li>Share your bar and cocktail activity with people you choose</li>
+    </ul>
+
+    <h3>You May Not</h3>
+    <ul>
+      <li>Use the App if you are under 18 or under the legal drinking age in your jurisdiction</li>
+      <li>Harass, threaten, or intimidate other users</li>
+      <li>Post false, misleading, or defamatory content</li>
+      <li>Impersonate any person or entity</li>
+      <li>Attempt to gain unauthorized access to any part of the App or its infrastructure</li>
+      <li>Use the App for commercial solicitation without our express written consent</li>
+      <li>Scrape, crawl, or extract data from the App by automated means</li>
+      <li>Reverse engineer, decompile, or attempt to extract the source code of the App</li>
+      <li>Violate any applicable law or regulation</li>
+    </ul>
+  </section>
+
+  <!-- 4. RESPONSIBLE USE OF ALCOHOL -->
+  <section>
+    <h2>Responsible Use of Alcohol</h2>
+    <div class="callout notice">
+      <div class="callout-label">Please Drink Responsibly</div>
+      OurBar is a tool for exploring and enjoying cocktails and spirits. It is not intended to encourage excessive alcohol consumption.
+    </div>
+    <p>By using OurBar, you acknowledge and agree that:</p>
+    <ul>
+      <li>You are responsible for your own alcohol consumption and its effects</li>
+      <li>You will not use the App while operating a vehicle or heavy machinery</li>
+      <li>You will comply with all laws regarding alcohol consumption in your jurisdiction</li>
+      <li>We are not responsible for any harm resulting from alcohol consumption, whether or not facilitated by use of the App</li>
+    </ul>
+    <p>If you or someone you know has a problem with alcohol, please seek help. The SAMHSA National Helpline is available 24/7 at 1-800-662-4357.</p>
+  </section>
+
+  <!-- 5. USER CONTENT -->
+  <section>
+    <h2>User Content</h2>
+    <p>OurBar allows you to create and share content including bar inventory, ratings, tasting notes, and group activity ("User Content").</p>
+    <p>You retain ownership of your User Content. By submitting content to OurBar, you grant Eighth Ventures LLC a non-exclusive, worldwide, royalty-free license to use, store, display, and distribute your User Content solely for the purpose of operating and improving the App.</p>
+    <p>You represent and warrant that:</p>
+    <ul>
+      <li>You own or have the right to submit the User Content</li>
+      <li>Your User Content does not violate any third-party rights</li>
+      <li>Your User Content complies with these Terms and applicable law</li>
+    </ul>
+    <p>We reserve the right to remove any User Content that violates these Terms or that we determine, in our sole discretion, is harmful, offensive, or otherwise objectionable.</p>
+  </section>
+
+  <!-- 6. INTELLECTUAL PROPERTY -->
+  <section>
+    <h2>Intellectual Property</h2>
+    <p>The App, including its design, features, content, cocktail database, and underlying technology, is owned by Eighth Ventures LLC and protected by applicable intellectual property laws.</p>
+    <p>We grant you a limited, non-exclusive, non-transferable, revocable license to use the App for personal, non-commercial purposes in accordance with these Terms.</p>
+    <p>You may not:</p>
+    <ul>
+      <li>Copy, modify, or distribute any part of the App without our written permission</li>
+      <li>Use our trademarks, logos, or brand assets without prior written consent</li>
+      <li>Create derivative works based on the App or its content</li>
+    </ul>
+  </section>
+
+  <!-- 7. PRIVACY -->
+  <section>
+    <h2>Privacy</h2>
+    <p>Your use of OurBar is also governed by our <a href="privacy-policy.html">Privacy Policy</a>, which is incorporated into these Terms by reference. By using the App, you consent to the collection and use of your information as described in the Privacy Policy.</p>
+  </section>
+
+  <!-- 8. THIRD-PARTY SERVICES -->
+  <section>
+    <h2>Third-Party Services</h2>
+    <p>OurBar is built using third-party services including Supabase for data storage and authentication. Your use of the App is subject to the terms and privacy policies of these providers.</p>
+    <p>We are not responsible for the practices of any third-party services, and links or integrations with third-party services do not constitute our endorsement of those services.</p>
+  </section>
+
+  <!-- 9. DISCLAIMERS -->
+  <section>
+    <h2>Disclaimers</h2>
+    <div class="disclaimer-box">
+      The App is provided "as is" and "as available" without warranties of any kind, either express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, or non-infringement. We do not warrant that the App will be uninterrupted, error-free, or free of viruses or other harmful components.
+    </div>
+    <p>The cocktail recipes, spirit information, and other content in the App are provided for informational and entertainment purposes only. We make no representations about the accuracy or completeness of this information. Always exercise good judgment when preparing and consuming alcoholic beverages.</p>
+  </section>
+
+  <!-- 10. LIMITATION OF LIABILITY -->
+  <section>
+    <h2>Limitation of Liability</h2>
+    <div class="disclaimer-box">
+      To the maximum extent permitted by applicable law, Eighth Ventures LLC shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of data, loss of profits, or personal injury, arising out of or related to your use of the App, even if we have been advised of the possibility of such damages. Our total liability to you for any claims arising from these Terms or your use of the App shall not exceed $100.
+    </div>
+    <p>Some jurisdictions do not allow the exclusion or limitation of certain damages, so the above limitations may not apply to you.</p>
+  </section>
+
+  <!-- 11. INDEMNIFICATION -->
+  <section>
+    <h2>Indemnification</h2>
+    <p>You agree to indemnify, defend, and hold harmless Eighth Ventures LLC and its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses, including reasonable legal fees, arising out of or in any way connected with:</p>
+    <ul>
+      <li>Your access to or use of the App</li>
+      <li>Your violation of these Terms</li>
+      <li>Your violation of any third-party rights</li>
+      <li>Any User Content you submit</li>
+    </ul>
+  </section>
+
+  <!-- 12. TERMINATION -->
+  <section>
+    <h2>Termination</h2>
+    <p>You may stop using OurBar and delete your account at any time from within the App under Settings → Account → Delete Account.</p>
+    <p>We reserve the right to suspend or terminate your access to the App at any time, with or without notice, for any reason, including if we believe you have violated these Terms.</p>
+    <p>Upon termination, your license to use the App immediately ceases. Sections of these Terms that by their nature should survive termination will survive, including disclaimers, limitations of liability, and indemnification.</p>
+  </section>
+
+  <!-- 13. GOVERNING LAW -->
+  <section>
+    <h2>Governing Law and Disputes</h2>
+    <p>These Terms are governed by and construed in accordance with the laws of the State of Utah, United States, without regard to its conflict of law principles.</p>
+    <p>Any dispute arising from these Terms or your use of the App shall be resolved through binding arbitration in Salt Lake County, Utah, under the rules of the American Arbitration Association, except that either party may seek injunctive or other equitable relief in any court of competent jurisdiction.</p>
+    <p>You waive any right to a jury trial or to participate in a class action lawsuit.</p>
+  </section>
+
+  <!-- 14. CHANGES TO TERMS -->
+  <section>
+    <h2>Changes to These Terms</h2>
+    <p>We reserve the right to modify these Terms at any time. When we make material changes, we will update the "Last updated" date and notify you through the App or by email.</p>
+    <p>Your continued use of OurBar after any changes constitutes your acceptance of the updated Terms. If you do not agree to the updated Terms, you must stop using the App and delete your account.</p>
+  </section>
+
+  <!-- CONTACT -->
+  <div class="contact-box">
+    <h2>Contact Us</h2>
+    <p>If you have questions about these Terms, please contact us:</p>
+    <div class="contact-detail">
+      <div class="contact-row">
+        <span class="label">Company</span>
+        <span class="value">Eighth Ventures LLC</span>
+      </div>
+      <div class="contact-row">
+        <span class="label">App</span>
+        <span class="value">OurBar</span>
+      </div>
+      <div class="contact-row">
+        <span class="label">Email</span>
+        <span class="value"><a href="mailto:legal@eighthventures.com">legal@eighthventures.com</a></span>
+      </div>
+      <div class="contact-row">
+        <span class="label">State</span>
+        <span class="value">Utah, United States</span>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-nav">
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms-of-use.html">Terms of Use</a>
+    <a href="mailto:legal@eighthventures.com">Contact</a>
+  </div>
+  <p>© 2026 Eighth Ventures LLC. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
