@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Hallucination</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #0A0A0A;
+      --dark: #111111;
+      --card: #1A1A1A;
+      --border: #2A2A2A;
+      --green: #00FF41;
+      --white: #F5F5F0;
+      --muted: #888880;
+      --text: #D8D8D0;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.75;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HEADER ── */
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 32px 0;
+      position: sticky;
+      top: 0;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      background: var(--card);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 16px rgba(0,255,65,0.25);
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .logo-mark img {
+      width: 26px;
+      height: 26px;
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+    }
+
+    .logo-text {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 18px;
+      color: var(--white);
+      letter-spacing: -0.3px;
+    }
+
+    .doc-badge {
+      margin-left: auto;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    /* ── MAIN ── */
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 72px 32px 120px;
+    }
+
+    /* ── HERO ── */
+    .doc-hero {
+      margin-bottom: 64px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .doc-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 20px;
+    }
+
+    .doc-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(36px, 6vw, 52px);
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 24px;
+    }
+
+    .doc-meta {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .doc-meta-item {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .doc-meta-item strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* ── INTRO ── */
+    .doc-intro {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--green);
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin-bottom: 56px;
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      margin-bottom: 56px;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 26px;
+      color: var(--white);
+      letter-spacing: -0.5px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    h2::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 24px;
+      background: var(--green);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    h3 {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 8px;
+      margin-top: 24px;
+    }
+
+    p {
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    ul, ol {
+      margin-bottom: 16px;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    ul li, ol li {
+      padding: 6px 0 6px 24px;
+      position: relative;
+      color: var(--text);
+    }
+
+    ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: 500;
+    }
+
+    ol {
+      counter-reset: list-counter;
+    }
+
+    ol li {
+      counter-increment: list-counter;
+    }
+
+    ol li::before {
+      content: counter(list-counter) '.';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: 500;
+      font-size: 13px;
+    }
+
+    a {
+      color: var(--green);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0,255,65,0.3);
+      transition: border-color 0.2s;
+    }
+
+    a:hover {
+      border-color: var(--green);
+    }
+
+    /* ── DATA TABLE ── */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 24px;
+      font-size: 14px;
+    }
+
+    .data-table th {
+      text-align: left;
+      padding: 10px 16px;
+      background: var(--card);
+      color: var(--white);
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .data-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .data-table tr:hover td {
+      background: rgba(255,255,255,0.02);
+    }
+
+    /* ── CALLOUT ── */
+    .callout {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      font-size: 14px;
+    }
+
+    .callout.notice {
+      border-left: 3px solid #FFB347;
+    }
+
+    .callout.notice .callout-label {
+      color: #FFB347;
+    }
+
+    .callout-label {
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      color: var(--green);
+    }
+
+    /* ── CONTACT BOX ── */
+    .contact-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      margin-top: 48px;
+    }
+
+    .contact-box h2 {
+      margin-bottom: 16px;
+    }
+
+    .contact-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .contact-row {
+      display: flex;
+      gap: 16px;
+      font-size: 14px;
+    }
+
+    .contact-row .label {
+      color: var(--muted);
+      min-width: 80px;
+    }
+
+    .contact-row .value {
+      color: var(--text);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    footer a {
+      color: var(--muted);
+      border-bottom-color: rgba(136,136,128,0.3);
+    }
+
+    footer a:hover {
+      color: var(--green);
+      border-color: var(--green);
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      main { padding: 48px 20px 80px; }
+      .header-inner { padding: 0 20px; }
+      .doc-meta { flex-direction: column; gap: 8px; }
+      .data-table { font-size: 13px; }
+      .data-table th, .data-table td { padding: 10px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo-mark">
+      <img src="../hallucination-logo.png" alt="">
+    </div>
+    <span class="logo-text">hallucination</span>
+    <span class="doc-badge">Legal</span>
+  </div>
+</header>
+
+<main>
+
+  <div class="doc-hero">
+    <p class="doc-eyebrow">Eighth Ventures LLC</p>
+    <h1 class="doc-title">Privacy Policy</h1>
+    <div class="doc-meta">
+      <div class="doc-meta-item"><strong>Effective:</strong> May 10, 2026</div>
+      <div class="doc-meta-item"><strong>Last updated:</strong> April 21, 2026</div>
+      <div class="doc-meta-item"><strong>Version:</strong> 1.0</div>
+    </div>
+  </div>
+
+  <div class="doc-intro">
+    This Privacy Policy describes how Eighth Ventures LLC ("we," "us," or "our") handles information in connection with your use of Hallucination (the "App"). By using Hallucination, you agree to the data practices described in this policy.
+  </div>
+
+  <!-- 1. SUMMARY -->
+  <section>
+    <h2>Summary</h2>
+    <p>We designed Hallucination to minimize data collection:</p>
+    <ul>
+      <li><strong>We do not operate servers.</strong> All game progress, settings, and purchase state are stored locally on your device.</li>
+      <li><strong>We do not create user accounts.</strong> No sign-up, no login, no profile.</li>
+      <li><strong>We do not use analytics or crash reporting SDKs.</strong></li>
+      <li><strong>The only third party that collects data through the App is Google AdMob</strong>, and only when advertisements are displayed.</li>
+      <li><strong>If you purchase Remove Ads ($2.99)</strong>, no advertising data is collected at all.</li>
+    </ul>
+  </section>
+
+  <!-- 2. INFORMATION EIGHTH VENTURES DOES NOT DIRECTLY COLLECT -->
+  <section>
+    <h2>Information Eighth Ventures Does Not Directly Collect</h2>
+    <p>Eighth Ventures LLC does not directly collect, store, or transmit to our systems any information about you, including:</p>
+    <ul>
+      <li>Your name, email address, or contact information</li>
+      <li>Account credentials (the App has no user accounts)</li>
+      <li>Your physical location or GPS data</li>
+      <li>Your device's contacts, photos, calendar, or microphone</li>
+      <li>Your browsing history or data from other apps</li>
+      <li>Any personally identifiable information</li>
+    </ul>
+    <p>All game data is stored locally on your device using iOS's standard UserDefaults system. This data never leaves your device through our systems. If you uninstall the App, all locally stored data is removed from your device.</p>
+  </section>
+
+  <!-- 3. INFORMATION COLLECTED BY THIRD PARTIES -->
+  <section>
+    <h2>Information Collected by Third Parties</h2>
+    <p>Two third-party services used by the App collect limited information. We disclose this below for full transparency.</p>
+
+    <h3>Apple (In-App Purchases and App Store)</h3>
+    <p>Hallucination offers one optional in-app purchase, <strong>Remove Ads</strong> ($2.99 USD, one-time, non-consumable). This purchase is processed entirely by Apple through the App Store using StoreKit.</p>
+    <p>Apple handles all payment processing. We do not receive your Apple ID, payment information, name, or any other identifying details from Apple. We receive only the StoreKit transaction verification necessary to grant your purchase entitlement, which is then stored locally on your device.</p>
+    <p>Apple's handling of your purchase and device identity is governed by the <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a>.</p>
+
+    <h3>Google AdMob (Advertising)</h3>
+    <p>For users who have not purchased Remove Ads, Hallucination displays rewarded video advertisements and banner advertisements through Google AdMob.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Ad Type</th>
+          <th>Frequency</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Rewarded video</td>
+          <td>Only shown when you voluntarily watch in exchange for in-game rewards</td>
+        </tr>
+        <tr>
+          <td>Banner</td>
+          <td>Displayed in limited contexts as disclosed within the App</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Google AdMob may collect:</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Data Type</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Device Identifier (IDFA)</td>
+          <td>Used for personalized advertising if you grant tracking permission via the App Tracking Transparency prompt</td>
+        </tr>
+        <tr>
+          <td>Advertising Data</td>
+          <td>Which ads were shown, interactions with them</td>
+        </tr>
+        <tr>
+          <td>Device Technical Data</td>
+          <td>Device type, operating system version, country-level geographic region</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Google's ad servers receive traffic during ad requests. The domains involved are disclosed in the App's privacy manifest and include googleads.g.doubleclick.net, googleadservices.com, googlesyndication.com, googletagmanager.com, googletagservices.com, googleusercontent.com, and doubleclick.net.</p>
+    <p>We do not receive this data from AdMob. We receive only aggregated reporting about ad performance and revenue through the AdMob publisher dashboard.</p>
+    <p>Google's data practices are described in the <a href="https://policies.google.com/privacy">Google Privacy Policy</a> and <a href="https://support.google.com/admob/answer/6128543">AdMob's policies</a>.</p>
+  </section>
+
+  <!-- 4. APP TRACKING TRANSPARENCY -->
+  <section>
+    <h2>App Tracking Transparency</h2>
+    <p>Hallucination uses Apple's App Tracking Transparency (ATT) framework to request your permission before allowing AdMob to use your Advertising Identifier (IDFA) for personalized advertising. The ATT prompt appears after the first-run welcome screen.</p>
+    <p>The purpose string shown in the ATT prompt is: <em>"This identifier will be used to show you ads that are more relevant to you."</em></p>
+    <p>If you deny this request, the App continues to function normally. AdMob will serve non-personalized ads instead of personalized ones. You may change your decision at any time in iOS Settings → Privacy &amp; Security → Tracking.</p>
+  </section>
+
+  <!-- 5. YOUR CHOICES REGARDING ADVERTISING -->
+  <section>
+    <h2>Your Choices Regarding Advertising</h2>
+    <p>You have several options to control advertising in the App:</p>
+    <ul>
+      <li><strong>Decline tracking via the ATT prompt.</strong> AdMob will serve non-personalized ads and your IDFA will not be used to track you across apps.</li>
+      <li><strong>Limit tracking device-wide.</strong> Go to iOS Settings → Privacy &amp; Security → Tracking and toggle "Allow Apps to Request to Track" off. You can also reset your Advertising Identifier in iOS Settings.</li>
+      <li><strong>Purchase Remove Ads.</strong> This one-time $2.99 purchase eliminates all advertising in the App permanently for your device. No ads means no advertising-related data collection.</li>
+    </ul>
+  </section>
+
+  <!-- 6. WHAT WE STORE LOCALLY ON YOUR DEVICE -->
+  <section>
+    <h2>What We Store Locally on Your Device</h2>
+    <p>For full transparency, the App stores the following data locally via iOS UserDefaults:</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Game progress (runs played, best wave, total enemies defeated)</td>
+          <td>Track your in-game progression</td>
+        </tr>
+        <tr>
+          <td>In-game currency (Core Shards earned)</td>
+          <td>Meta-progression across runs</td>
+        </tr>
+        <tr>
+          <td>Unlock state (towers and abilities unlocked)</td>
+          <td>Remember what you've earned</td>
+        </tr>
+        <tr>
+          <td>Purchase entitlement (whether Remove Ads is purchased)</td>
+          <td>Grant Remove Ads benefit</td>
+        </tr>
+        <tr>
+          <td>User preferences (sound, music, game speed)</td>
+          <td>Restore your settings between sessions</td>
+        </tr>
+        <tr>
+          <td>Onboarding flags (welcome screen shown, hints displayed)</td>
+          <td>Skip redundant onboarding</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>This data never leaves your device through our systems. We have no server that receives or stores any of it.</p>
+  </section>
+
+  <!-- 7. CHILDREN'S PRIVACY -->
+  <section>
+    <h2>Children's Privacy</h2>
+    <p>Hallucination is rated 12+ on the Apple App Store. The App is not directed to children under 13, and we do not knowingly collect any information from children. Because Eighth Ventures LLC does not directly collect personal information from any user, Hallucination complies with the Children's Online Privacy Protection Act (COPPA) by design at our layer.</p>
+    <p>If you are a parent or guardian and believe your child has somehow had information collected through use of the App, please contact us at <a href="mailto:support@eighthventures.com">support@eighthventures.com</a> and we will assist as we are able.</p>
+  </section>
+
+  <!-- 8. YOUR RIGHTS -->
+  <section>
+    <h2>Your Rights</h2>
+    <p>Because Eighth Ventures LLC does not directly collect personal information, most data-subject rights under GDPR, CCPA, CPRA, and similar privacy laws do not apply to our handling of your data — we have none.</p>
+    <p>However:</p>
+    <ul>
+      <li><strong>Access and deletion.</strong> All App data is on your device. You can access it by using the App or delete it by uninstalling.</li>
+      <li><strong>Opt out of advertising-related tracking.</strong> Use the ATT prompt, iOS Settings, or purchase Remove Ads.</li>
+    </ul>
+
+    <h3>California residents (CCPA / CPRA)</h3>
+    <p>We do not sell or share personal information as those terms are defined under the California Consumer Privacy Act and California Privacy Rights Act. We have no personal information to disclose, delete, or correct because we do not collect any.</p>
+
+    <h3>EU and UK residents (GDPR / UK GDPR)</h3>
+    <p>Google AdMob uses a Consent Management Platform to request your consent for personalized advertising in EU/UK jurisdictions. This is AdMob's own compliance flow. Eighth Ventures LLC processes no personal data itself.</p>
+    <p>For data held by third parties, contact them directly:</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Third Party</th>
+          <th>Contact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Apple</td>
+          <td><a href="https://www.apple.com/legal/privacy/">https://www.apple.com/legal/privacy/</a></td>
+        </tr>
+        <tr>
+          <td>Google AdMob</td>
+          <td><a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 9. CHANGES -->
+  <section>
+    <h2>Changes to This Privacy Policy</h2>
+    <p>We may update this Privacy Policy from time to time. When we make material changes, we will update the "Last updated" date at the top of this policy and, where appropriate, surface notice within the App.</p>
+    <p>Your continued use of the App after the "Last updated" date changes constitutes acceptance of the updated policy.</p>
+  </section>
+
+  <!-- CONTACT -->
+  <div class="contact-box">
+    <h2>Contact Us</h2>
+    <p>If you have questions about this Privacy Policy, contact us:</p>
+    <div class="contact-detail">
+      <div class="contact-row">
+        <span class="label">Company</span>
+        <span class="value">Eighth Ventures LLC</span>
+      </div>
+      <div class="contact-row">
+        <span class="label">App</span>
+        <span class="value">Hallucination</span>
+      </div>
+      <div class="contact-row">
+        <span class="label">Email</span>
+        <span class="value"><a href="mailto:support@eighthventures.com">support@eighthventures.com</a></span>
+      </div>
+      <div class="contact-row">
+        <span class="label">State</span>
+        <span class="value">Utah, United States</span>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-nav">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Use</a>
+    <a href="support.html">Support</a>
+    <a href="mailto:support@eighthventures.com">Contact</a>
+  </div>
+  <p>© 2026 Eighth Ventures LLC. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

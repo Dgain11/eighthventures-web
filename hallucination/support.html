@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support — Hallucination</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #0A0A0A;
+      --dark: #111111;
+      --card: #1A1A1A;
+      --border: #2A2A2A;
+      --green: #00FF41;
+      --white: #F5F5F0;
+      --muted: #888880;
+      --text: #D8D8D0;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.75;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 32px 0;
+      position: sticky;
+      top: 0;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      background: var(--card);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 16px rgba(0,255,65,0.25);
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .logo-mark img {
+      width: 26px;
+      height: 26px;
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+    }
+
+    .logo-text {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 18px;
+      color: var(--white);
+      letter-spacing: -0.3px;
+    }
+
+    .doc-badge {
+      margin-left: auto;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 72px 32px 120px;
+    }
+
+    .doc-hero {
+      margin-bottom: 64px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .doc-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 20px;
+    }
+
+    .doc-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(36px, 6vw, 52px);
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 24px;
+    }
+
+    .doc-meta {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .doc-meta-item {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .doc-meta-item strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .doc-intro {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--green);
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin-bottom: 56px;
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    section {
+      margin-bottom: 56px;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 26px;
+      color: var(--white);
+      letter-spacing: -0.5px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    h2::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 24px;
+      background: var(--green);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 19px;
+      font-weight: 400;
+      color: var(--white);
+      letter-spacing: -0.3px;
+      margin-top: 32px;
+      margin-bottom: 12px;
+    }
+
+    p {
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    ul, ol {
+      margin-bottom: 16px;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    ul li, ol li {
+      padding: 6px 0 6px 24px;
+      position: relative;
+      color: var(--text);
+    }
+
+    ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: 500;
+    }
+
+    ol {
+      counter-reset: list-counter;
+    }
+
+    ol li {
+      counter-increment: list-counter;
+    }
+
+    ol li::before {
+      content: counter(list-counter) '.';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: 500;
+      font-size: 13px;
+    }
+
+    a {
+      color: var(--green);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0,255,65,0.3);
+      transition: border-color 0.2s;
+    }
+
+    a:hover {
+      border-color: var(--green);
+    }
+
+    .contact-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      margin-top: 48px;
+    }
+
+    .contact-box h2 {
+      margin-bottom: 16px;
+    }
+
+    .contact-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .contact-row {
+      display: flex;
+      gap: 16px;
+      font-size: 14px;
+    }
+
+    .contact-row .label {
+      color: var(--muted);
+      min-width: 80px;
+    }
+
+    .contact-row .value {
+      color: var(--text);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    footer a {
+      color: var(--muted);
+      border-bottom-color: rgba(136,136,128,0.3);
+    }
+
+    footer a:hover {
+      color: var(--green);
+      border-color: var(--green);
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 600px) {
+      main { padding: 48px 20px 80px; }
+      .header-inner { padding: 0 20px; }
+      .doc-meta { flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo-mark">
+      <img src="../hallucination-logo.png" alt="">
+    </div>
+    <span class="logo-text">hallucination</span>
+    <span class="doc-badge">Support</span>
+  </div>
+</header>
+
+<main>
+
+  <div class="doc-hero">
+    <p class="doc-eyebrow">Eighth Ventures LLC</p>
+    <h1 class="doc-title">Hallucination Support</h1>
+    <div class="doc-meta">
+      <div class="doc-meta-item"><strong>Last updated:</strong> April 21, 2026</div>
+    </div>
+  </div>
+
+  <div class="doc-intro">
+    Need help with Hallucination? You're in the right place.
+  </div>
+
+  <!-- CONTACT -->
+  <section>
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:support@eighthventures.com">support@eighthventures.com</a></p>
+    <p>We read every message. Response times are typically within 48 hours on weekdays.</p>
+  </section>
+
+  <!-- COMMON QUESTIONS -->
+  <section>
+    <h2>Common questions</h2>
+
+    <h3>How do I restore my Remove Ads purchase on a new device?</h3>
+    <p>Open the App → Settings → Restore Purchases. Make sure you're signed in to the same Apple ID that made the original purchase.</p>
+
+    <h3>How do I request a refund?</h3>
+    <p>Refunds are handled by Apple, not by us. Visit <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a> and sign in with your Apple ID. Find the Hallucination purchase and request a refund directly.</p>
+    <p>If Apple denies your refund and you believe you have a legitimate case, email <a href="mailto:support@eighthventures.com">support@eighthventures.com</a> and we'll review your situation. We can't issue refunds directly — Apple controls that — but we'll advocate on your behalf where appropriate.</p>
+
+    <h3>I bought Remove Ads but I'm still seeing ads</h3>
+    <ol>
+      <li>Make sure you're signed in to the Apple ID that made the purchase</li>
+      <li>Open the App → Settings → Restore Purchases</li>
+      <li>If that doesn't work, restart the App</li>
+      <li>If ads still appear, email <a href="mailto:support@eighthventures.com">support@eighthventures.com</a> with your purchase receipt</li>
+    </ol>
+
+    <h3>The game crashes</h3>
+    <p>Try in order:</p>
+    <ol>
+      <li>Force-quit the App and reopen it</li>
+      <li>Restart your iPhone</li>
+      <li>Verify you're running iOS 17 or later (required)</li>
+      <li>Update to the latest version of Hallucination from the App Store</li>
+    </ol>
+    <p>If crashes persist, email <a href="mailto:support@eighthventures.com">support@eighthventures.com</a> with:</p>
+    <ul>
+      <li>iPhone model and iOS version</li>
+      <li>When the crash happens (on launch, during a specific wave, after a specific action)</li>
+      <li>Whether you've purchased Remove Ads</li>
+    </ul>
+
+    <h3>My save file is gone</h3>
+    <p>Progress is stored locally on your device. It is not synced to iCloud in v1.0. If you uninstall the App, restore your device from a backup, or switch to a new device, local save data may be lost.</p>
+    <p>To protect your progress, avoid uninstalling the App. Restoring from an iCloud device backup should preserve it.</p>
+    <p>If you've lost progress due to an iOS or device issue, we sympathize, but we have no way to recover it because we don't store this data on our servers.</p>
+    <p>iCloud save sync is planned for a future update.</p>
+
+    <h3>I'm stuck on a wave</h3>
+    <p>Strategies that tend to work:</p>
+    <ul>
+      <li>Mix tower types. A single tower type rarely scales — combine damage-dealers with slow/crowd-control.</li>
+      <li>Build generators early. Power availability limits tower count.</li>
+      <li>Target the chip, not the body. Prompt Injector ignores shields and hits the neural chip directly.</li>
+      <li>Upgrade the Core Generator. Higher output unlocks higher-tier towers.</li>
+    </ul>
+
+    <h3>Bug reports or feature requests</h3>
+    <p>Email <a href="mailto:support@eighthventures.com">support@eighthventures.com</a>. Include as much detail as you can — screenshots or screen recordings are extremely helpful.</p>
+  </section>
+
+  <!-- PRIVACY AND LEGAL -->
+  <section>
+    <h2>Privacy and legal</h2>
+    <p>See our <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms of Use</a>.</p>
+  </section>
+
+  <!-- ABOUT -->
+  <section>
+    <h2>About</h2>
+    <p>Hallucination is developed and published by Eighth Ventures LLC, a Utah-based studio. Eighth Ventures builds consumer apps and business software. Learn more at <a href="../">eighthventures.com</a>.</p>
+  </section>
+
+  <!-- CONTACT BOX -->
+  <div class="contact-box">
+    <h2>Get in touch</h2>
+    <p>We're one person running this studio — and we read every email.</p>
+    <div class="contact-detail">
+      <div class="contact-row">
+        <span class="label">Company</span>
+        <span class="value">Eighth Ventures LLC</span>
+      </div>
+      <div class="contact-row">
+        <span class="label">App</span>
+        <span class="value">Hallucination</span>
+      </div>
+      <div class="contact-row">
+        <span class="label">Email</span>
+        <span class="value"><a href="mailto:support@eighthventures.com">support@eighthventures.com</a></span>
+      </div>
+      <div class="contact-row">
+        <span class="label">State</span>
+        <span class="value">Utah, United States</span>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-nav">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Use</a>
+    <a href="support.html">Support</a>
+    <a href="mailto:support@eighthventures.com">Contact</a>
+  </div>
+  <p>© 2026 Eighth Ventures LLC. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

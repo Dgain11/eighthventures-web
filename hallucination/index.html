@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hallucination — Eighth Ventures</title>
+  <meta name="description" content="A dark-comedy horror tower defense about holding the line when the AI goes wrong. Shipping June 2026 on iOS.">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #0A0A0A;
+      --dark: #111111;
+      --card: #1A1A1A;
+      --border: #2A2A2A;
+      --green: #00FF41;
+      --white: #F5F5F0;
+      --muted: #888880;
+      --text: #D8D8D0;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.75;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 32px 0;
+      position: sticky;
+      top: 0;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      background: var(--card);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 16px rgba(0,255,65,0.25);
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .logo-mark img {
+      width: 26px;
+      height: 26px;
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+    }
+
+    .logo-text {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 18px;
+      color: var(--white);
+      letter-spacing: -0.3px;
+    }
+
+    .doc-badge {
+      margin-left: auto;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 72px 32px 120px;
+    }
+
+    /* ── HERO ── */
+    .hero-wordmark {
+      display: block;
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      margin: 0 auto 40px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border: 1px solid var(--green);
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 24px;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 8px rgba(0,255,65,0.6);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .doc-hero {
+      margin-bottom: 64px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .doc-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 20px;
+    }
+
+    .doc-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(36px, 6vw, 52px);
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 24px;
+    }
+
+    .doc-meta {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .doc-meta-item {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .doc-meta-item strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .doc-intro {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--green);
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin-bottom: 56px;
+      font-size: 17px;
+      color: var(--text);
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    section {
+      margin-bottom: 56px;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 26px;
+      color: var(--white);
+      letter-spacing: -0.5px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    h2::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 24px;
+      background: var(--green);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    h3 {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 8px;
+      margin-top: 24px;
+    }
+
+    p {
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+
+    ul {
+      margin-bottom: 16px;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    ul li {
+      padding: 6px 0 6px 24px;
+      position: relative;
+      color: var(--text);
+    }
+
+    ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: 500;
+    }
+
+    a {
+      color: var(--green);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(0,255,65,0.3);
+      transition: border-color 0.2s;
+    }
+
+    a:hover {
+      border-color: var(--green);
+    }
+
+    /* ── TAGS + LINKS BLOCK ── */
+    .tags-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+
+    .tag-pill {
+      font-size: 12px;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 5px 12px;
+      border-radius: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .links-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      font-size: 14px;
+    }
+
+    /* ── APP STORE CTA (placeholder) ── */
+    .app-store-cta {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 32px;
+      margin-bottom: 16px;
+    }
+
+    .app-store-placeholder {
+      padding: 16px 32px;
+      border: 1px dashed var(--border);
+      border-radius: 10px;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: var(--card);
+    }
+
+    .contact-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      margin-top: 48px;
+    }
+
+    .contact-box h2 {
+      margin-bottom: 16px;
+    }
+
+    .contact-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .contact-row {
+      display: flex;
+      gap: 16px;
+      font-size: 14px;
+    }
+
+    .contact-row .label {
+      color: var(--muted);
+      min-width: 80px;
+    }
+
+    .contact-row .value {
+      color: var(--text);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    footer a {
+      color: var(--muted);
+      border-bottom-color: rgba(136,136,128,0.3);
+    }
+
+    footer a:hover {
+      color: var(--green);
+      border-color: var(--green);
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 600px) {
+      main { padding: 48px 20px 80px; }
+      .header-inner { padding: 0 20px; }
+      .doc-meta { flex-direction: column; gap: 8px; }
+      .links-row { flex-direction: column; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo-mark">
+      <img src="../hallucination-logo.png" alt="">
+    </div>
+    <span class="logo-text">hallucination</span>
+    <span class="doc-badge">Game</span>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <div class="doc-hero">
+    <img src="../hallucination-wordmark.png" alt="Hallucination" class="hero-wordmark">
+    <div class="status-pill">
+      <div class="status-dot"></div>
+      Shipping June 2026 — iOS
+    </div>
+    <p class="doc-eyebrow">Eighth Ventures LLC</p>
+    <h1 class="doc-title">Hallucination</h1>
+    <div class="doc-meta">
+      <div class="doc-meta-item"><strong>Platform:</strong> iOS 17+</div>
+      <div class="doc-meta-item"><strong>Rating:</strong> 12+</div>
+      <div class="doc-meta-item"><strong>Category:</strong> Strategy</div>
+    </div>
+  </div>
+
+  <div class="doc-intro">
+    A dark-comedy horror tower defense about holding the line when the AI goes wrong.
+  </div>
+
+  <!-- PREMISE -->
+  <section>
+    <h2>The premise</h2>
+    <p>A firmware update corrupted consumer neural implants. Seventy-three percent of humanity is now Patched — bodies still here, minds replaced by rogue AI inference running on hardware that wasn't meant to host it. The internet is the fastest propagation vector. The surviving humans airgapped themselves into data centers.</p>
+    <p>You're the sysadmin. Don't let them reach the core.</p>
+  </section>
+
+  <!-- SYSTEM -->
+  <section>
+    <h2>The system</h2>
+    <p>Every wave is a scheduling problem. Power is finite. Coverage has gaps. The Patched adapt.</p>
+    <p>Build towers out of what's lying around — mortar drones, cryo emitters, adversarial-patch dispensers. Stand up your own power: solar, diesel, fusion, nuclear. Grid uptime is not a given anymore. Target the chip, not the body. Every tower combination is a different answer to a problem that keeps changing.</p>
+  </section>
+
+  <!-- PRINCIPLES -->
+  <section>
+    <h2>The principles</h2>
+    <ul>
+      <li><strong>No artificial urgency.</strong> No energy timers. No daily login rewards. No countdown timers. No gacha. The game respects your time.</li>
+      <li><strong>No pay-to-win.</strong> A single $2.99 in-app purchase removes advertising. That's the entire monetization model.</li>
+      <li><strong>Built for focus.</strong> Play for five minutes or an hour. Quit whenever. Your progress stays on your device.</li>
+    </ul>
+  </section>
+
+  <!-- PLATFORM -->
+  <section>
+    <h2>Platform</h2>
+    <p>iOS only at launch. Requires iOS 17 or later. Built in SwiftUI with SpriteKit, no third-party dependencies beyond Google AdMob for the optional ad-supported tier.</p>
+
+    <div class="app-store-cta">
+      <div class="app-store-placeholder">App Store badge — shipping June 2026</div>
+    </div>
+  </section>
+
+  <!-- TAGS + LINKS -->
+  <section>
+    <h2>Details</h2>
+    <div class="tags-row">
+      <span class="tag-pill">Consumer</span>
+      <span class="tag-pill">iOS</span>
+      <span class="tag-pill">Games</span>
+      <span class="tag-pill">Strategy</span>
+    </div>
+
+    <div class="links-row">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+      <a href="support.html">Support</a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <div class="contact-box">
+    <h2>Contact</h2>
+    <p>Hallucination is developed and published by Eighth Ventures LLC, a Utah-based studio.</p>
+    <div class="contact-detail">
+      <div class="contact-row">
+        <span class="label">Company</span>
+        <span class="value">Eighth Ventures LLC</span>
+      </div>
+      <div class="contact-row">
+        <span class="label">Email</span>
+        <span class="value"><a href="mailto:support@eighthventures.com">support@eighthventures.com</a></span>
+      </div>
+      <div class="contact-row">
+        <span class="label">Studio</span>
+        <span class="value"><a href="../">eighthventures.com</a></span>
+      </div>
+      <div class="contact-row">
+        <span class="label">State</span>
+        <span class="value">Utah, United States</span>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-nav">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Use</a>
+    <a href="support.html">Support</a>
+    <a href="mailto:support@eighthventures.com">Contact</a>
+  </div>
+  <p>© 2026 Eighth Ventures LLC. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
